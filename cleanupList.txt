@@ -1,0 +1,17 @@
+*.html
+*.htm
+*.jpeg
+*.jpg
+*.txt
+*.sav
+*.gif
+thumbs.db
+*.doc
+*.rtf
+*.zip
+*.xml
+*.iit
+*.exe
+*._Loose*
+bldgprop_vol1.dat;http://simcity.ea.com/downloads/getfile_pri.php?filename=bldgprop_vol1.dat
+bldgprop_vol2.dat;http://simcity.ea.com/downloads/getfile_pri.php?filename=bldgprop_vol2.dat

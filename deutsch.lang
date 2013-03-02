@@ -1,0 +1,55 @@
+# -*- coding: iso-8859-15 -*-
+
+MsgReportBIG = u"B E R I C H T"
+MsgFoundIn = u" gefunden in " 
+MsgNotFound = u" nicht gefunden" 
+
+MsgMissing = u"FEHLEND: "
+MsgDld = u"konnte nicht gefunden werden, Download hier: %s\n"
+
+MsgUptodate = u"Du scheinst alle nötigen Abhängigkeiten installiert zu haben\n"
+MsgHtmlUptodate = u'<h2>Du scheinst alle nötigen Abhängigkeiten installiert zu haben</h2><br>\n'
+MsgNotUptodate = u"Es scheinen einige Abhängigkeiten zu fehlen\n"
+MsgHtmlNotUptodate = u'<h2><font color="red">Es scheinen einige Abhängigkeiten zu fehlen</font></h2><br>\n'
+
+
+
+MsgCleanup = u"Aufräumen"
+MsgCleanupBIG = u"A U F R Ä U M E N"
+
+MsgReportNotFound = u"%s wurde nicht gefunden\n"
+MsgHtmlReportNotFound = u"  <b>%s</b> nicht gefunden<br>\n"
+
+MsgReportFoundIn = u"%s (%s) gefunden in %s\n"
+MsgHtmlReportFoundIn = u"  <b>%s</b> (<b>%s</b>) gefunden in <b>%s</b><br>\n"
+
+MsgReportMove = u"%d Dateien wurden verschoben nach %s\n"
+MsgHtmlReportMove = u"%d Dateien wurden verschoben nach <b>%s</b><br>\n"
+MsgMove = u"Dateien wurden verschoben nach "
+
+MsgDepBIG = u"A B H Ä N G I G K E I T E N"
+MsgDep = u"Abhängigkeiten"
+
+MsgReportDld = u"%s konnte nicht gefunden werden, Download hier: %s\n"
+MsgHtmlReportDld = u'<b>%s</b> konnte nicht gefunden werden, Download hier: <a href="%s" target="_blank">%s</a><br>\n'
+
+MsgHtmlUndo = u'<hr><br><br>Eine undo.bat-Datei wurde erstellt in %s<br>\n'
+MsgUndo = u'\n\nEine undo.bat-Datei wurde erstellt in %s\n'
+MsgUndo2 = u"Eine undo.bat-Datei wurde erstellt in "
+
+MsgSaved = u'\n\nDieser Bericht wurde auch gespeichert in %s\n'
+MsgSaved2 = u"Dieser Bericht wurde auch gespeichert in "
+
+MsgTitle = u"Verschiebe Dateien, bitte warten"
+
+MsgFileList = u"Dateiliste"
+MsgLocate = u"Dateien suchen"
+MsgBackup = u"Backup erstellen"
+MsgQuit = u"Beenden"
+
+MsgChoose = u"Wähle eine Cleanitol-Datei aus"
+MsgFileType = "Cleanitol-Datei(*.txt)|*.txt"
+MsgLocate = u"Dateien suchen"
+
+MsgErrorOccurs = u"Ein Fehler ist aufgetreten"
+MsgError = u"FEHLER"

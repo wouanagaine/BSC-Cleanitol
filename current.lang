@@ -1,0 +1,55 @@
+# -*- coding: iso-8859-15 -*-
+
+MsgReportBIG = u"R E P O R T"
+MsgFoundIn = u" found in " 
+MsgNotFound = u" not present" 
+
+MsgMissing = u"MISSING : "
+MsgDld = u"has not been found, you can download it : %s\n"
+
+MsgUptodate = u"You seem to be up to date with needed dependancies\n"
+MsgHtmlUptodate = u'<h2>You seem to be up to date with needed dependancies</h2><br>\n'
+MsgNotUptodate = u"You seem to be missing some dependancies\n"
+MsgHtmlNotUptodate = u'<h2><font color="red">You seem to be missing some dependancies</font></h2><br>\n'
+
+
+
+MsgCleanup = u"Cleanup"
+MsgCleanupBIG = u"C L E A N U P"
+
+MsgReportNotFound = u"%s not present\n"
+MsgHtmlReportNotFound = u"  <b>%s</b> not present<br>\n"
+
+MsgReportFoundIn = u"%s (%s) found in %s\n"
+MsgHtmlReportFoundIn = u"  <b>%s</b> (<b>%s</b>) found in <b>%s</b><br>\n"
+
+MsgReportMove = u"%d files have been moved to %s\n"
+MsgHtmlReportMove = u"%d files have been moved to <b>%s</b><br>\n"
+MsgMove = u"files have been moved to "
+
+MsgDepBIG = u"D E P E N D A N C I E S"
+MsgDep = u"Dependancies"
+
+MsgReportDld = u"%s has not been found, you can download it : %s\n"
+MsgHtmlReportDld = u'<b>%s</b> has not been found, you can download it : <a href="%s" target="_blank">%s</a><br>\n'
+
+MsgHtmlUndo = u'<hr><br><br>An undo.bat file as been created at %s<br>\n'
+MsgUndo = u'\n\nAn undo.bat file as been created at %s\n'
+MsgUndo2 = u"An undo.bat file as been created at "
+
+MsgSaved = u'\n\nThis report has also been saved as %s\n'
+MsgSaved2 = u"This report has also been saved as "
+
+MsgTitle = u"Moving file, please wait"
+
+MsgFileList = u"Input file list"
+MsgLocate = u"Locate files"
+MsgBackup = u"Backup now"
+MsgQuit = u"Quit"
+
+MsgChoose = u"Choose a cleanitol file"
+MsgFileType = "cleanitol file(*.txt)|*.txt"
+MsgLocate = u"Locating files"
+
+MsgErrorOccurs = u"An error occurs"
+MsgError = u"ERROR"

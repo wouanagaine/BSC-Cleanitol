@@ -1,0 +1,55 @@
+# -*- coding: iso-8859-15 -*-
+
+MsgReportBIG = u"R A P P O R T"
+MsgFoundIn = u" trouvé dans " 
+MsgNotFound = u" n'est pas présent" 
+
+MsgMissing = u"INTROUVE : "
+MsgDld = u"n'est pas présent, vous pouvez le télécharger ici: %s\n"
+
+MsgUptodate = u"Vous semblez être à jour des dépendances\n"
+MsgHtmlUptodate = u'<h2>Vous semblez être à jour des dépendances</h2><br>\n'
+MsgNotUptodate = u"Vous semblez ne pas être à jour des dépendances\n"
+MsgHtmlNotUptodate = u'<h2><font color="red">Vous semblez ne pas être à jour des dépendances</font></h2><br>\n'
+
+
+
+MsgCleanup = u"Nettoyage"
+MsgCleanupBIG = u"N E T T O Y A G E"
+
+MsgReportNotFound = u"%s n'est pas présent\n"
+MsgHtmlReportNotFound = u"  <b>%s</b> n'est pas présent<br>\n"
+
+MsgReportFoundIn = u"%s (%s) trouvé dans %s\n"
+MsgHtmlReportFoundIn = u"  <b>%s</b> (<b>%s</b>) trouvé dans <b>%s</b><br>\n"
+
+MsgReportMove = u"%d fichiers ont été déplacé dans %s\n"
+MsgHtmlReportMove = u"%d fichiers ont été déplacé dans <b>%s</b><br>\n"
+MsgMove = u"fichiers ont été déplacé dans "
+
+MsgDepBIG = u"D E P E N D A N C E S"
+MsgDep = u"Dependances"
+
+MsgReportDld = u"%s n'est pas présent, vous pouvez le télécharger ici : %s\n"
+MsgHtmlReportDld = u'<b>%s</b> n\'est pas présent, vous pouvez le télécharger ici : <a href="%s" target="_blank">%s</a><br>\n'
+
+MsgHtmlUndo = u'<hr><br><br>Un fichier undo.bat a été créé dans %s<br>\n'
+MsgUndo = u'\n\nUn fichier undo.bat a été créé dans %s\n'
+MsgUndo2 = u"Un fichier undo.bat a été créé dans "
+
+MsgSaved = u'\n\nCe rapport est sauvé dans %s\n'
+MsgSaved2 = u"Ce rapport est sauvé dans "
+
+MsgTitle = u"Déplacement des fichiers, veuillez patienter"
+
+MsgFileList = u"Fichier cleanitol"
+MsgLocate = u"Localiser les fichiers"
+MsgBackup = u"Déplacer les fichiers"
+MsgQuit = u"Quitter"
+
+MsgChoose = u"Choisissez un fichier cleanitol"
+MsgFileType = "fichier cleanitol(*.txt)|*.txt"
+MsgLocate = u"Localisation des fichiers"
+
+MsgErrorOccurs = u"Une erreur s'est produite"
+MsgError = u"ERREUR"
