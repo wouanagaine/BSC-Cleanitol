@@ -137,7 +137,7 @@ def locate( inputFile, dlg, rtc ):
 		else:
 			fileName = depend['fileName']
 			wx.Yield()
-			matches = MatchFiles(allFiles, fileName)
+			matches = MatchFiles(allFiles, "*\\"+fileName)
 			if matches != []:
 				depend['present'] = True
 	if 0:
@@ -161,7 +161,7 @@ def locate( inputFile, dlg, rtc ):
 						rtc.Log(('%s\n' % os.path.split(x)[0]), wx.TextAttr('ORANGE', wx.NullColour))
 
 				for depend in dependancies:
-					if depend['present']:
+					if depend['present'] :
 						pass
 					else:
 						fileName = depend['fileName']
@@ -276,7 +276,7 @@ def process( inputFile, dlg, rtc ):
 			fileName = depend['fileName']
 			dlg.Increment1st()
 			wx.Yield()
-			matches = MatchFiles(allFiles, fileName)
+			matches = MatchFiles(allFiles, "*\\"+fileName)
 			if matches != []:
 				depend['present'] = True
 	if 0:
@@ -412,7 +412,7 @@ class ProcessDlg( wx.Dialog ):
 
 class MainFrame( wx.Frame ):
 	def __init__( self ):
-		wx.Frame.__init__(self, None, title='BSC Cleanitol TM 2013.1 NAM Version')
+		wx.Frame.__init__(self, None, title='BSC Cleanitol TM 2013.2 NAM Version')
 		self.SetIcon(wx.Icon(os.path.join( basedir, 'cleanitol.ico' ), wx.BITMAP_TYPE_ICO))
 		p = wx.Panel(self)
 		label = wx.StaticText(p, -1, MsgFileList)
