@@ -1,4 +1,3 @@
-
 import wx
 
 import dircache
@@ -75,7 +74,13 @@ def locate( inputFile, dlg, rtc ):
 		_winreg.CloseKey( maxisKey )
 		maxisFolder = os.path.join(maxisFolder, 'plugins')
 	except:
-		maxisFolder = ''
+		try:
+			maxisKey = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Maxis\\SimCity 4', 0, _winreg.KEY_READ )
+			maxisFolder = _winreg.QueryValueEx( maxisKey, 'Install Dir' )[0]
+			_winreg.CloseKey( maxisKey )
+			maxisFolder = os.path.join(maxisFolder, 'plugins')
+		except:
+			maxisFolder = ''
 	pluginsFolder = os.path.join(mydocs, u'SimCity 4\\Plugins')
 	if maxisFolder == '':
 		rtc.Log( "Maxis\t\t:", wx.TextAttr('RED', wx.NullColour, font) )
@@ -201,7 +206,13 @@ def process( inputFile, dlg, rtc ):
 		_winreg.CloseKey( maxisKey )
 		maxisFolder = os.path.join(maxisFolder, 'plugins')
 	except:
-		maxisFolder = ''
+		try:
+			maxisKey = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Maxis\\SimCity 4', 0, _winreg.KEY_READ )
+			maxisFolder = _winreg.QueryValueEx( maxisKey, 'Install Dir' )[0]
+			_winreg.CloseKey( maxisKey )
+			maxisFolder = os.path.join(maxisFolder, 'plugins')
+		except:
+			maxisFolder = ''
 	pluginsFolder = os.path.join(mydocs, 'SimCity 4\\Plugins')
 	
 	if maxisFolder == '':
@@ -412,7 +423,7 @@ class ProcessDlg( wx.Dialog ):
 
 class MainFrame( wx.Frame ):
 	def __init__( self ):
-		wx.Frame.__init__(self, None, title='BSC Cleanitol TM 2013.2 NAM Version')
+		wx.Frame.__init__(self, None, title='BSC Cleanitol TM 2013.3 NAM Version')
 		self.SetIcon(wx.Icon(os.path.join( basedir, 'cleanitol.ico' ), wx.BITMAP_TYPE_ICO))
 		p = wx.Panel(self)
 		label = wx.StaticText(p, -1, MsgFileList)
@@ -424,18 +435,48 @@ class MainFrame( wx.Frame ):
 		self.fileName = wx.TextCtrl(p, -1, txt, size=(80, -1), style=wx.TE_READONLY)
 		self.browse = wx.Button(p, -1, '...', size=(30, -1))
 		self.Bind(wx.EVT_BUTTON, self.OnBrowse, self.browse)
+
+		mydocs = wx.StandardPaths.Get().GetDocumentsDir()
+		try:
+			maxisKey = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Maxis\\SimCity 4', 0, _winreg.KEY_READ | _winreg.KEY_WOW64_64KEY )
+			maxisFolder = _winreg.QueryValueEx( maxisKey, 'Install Dir' )[0]
+			_winreg.CloseKey( maxisKey )
+			maxisFolder = os.path.join(maxisFolder, 'plugins')
+		except:
+			try:
+				maxisKey = _winreg.OpenKey( _winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Maxis\\SimCity 4', 0, _winreg.KEY_READ )
+				maxisFolder = _winreg.QueryValueEx( maxisKey, 'Install Dir' )[0]
+				_winreg.CloseKey( maxisKey )
+				maxisFolder = os.path.join(maxisFolder, 'plugins')
+			except:
+				maxisFolder = ''
+		pluginsFolder = os.path.join(mydocs, 'SimCity 4\\Plugins')
+
+		label2 = wx.StaticText( p, -1, "Maxis")		
+		self.txtMaxis = wx.TextCtrl( p, -1, maxisFolder, style=wx.TE_READONLY)
+		label3 = wx.StaticText( p, -1, "Plugins")		
+		self.txtPlugins = wx.TextCtrl( p, -1, pluginsFolder, style=wx.TE_READONLY)
 		self.bReport = wx.Button(p, -1, MsgLocate)
 		self.Bind(wx.EVT_BUTTON, self.OnReport, self.bReport)
 		self.bStart = wx.Button(p, -1, MsgBackup)
 		self.Bind(wx.EVT_BUTTON, self.OnStart, self.bStart)
 		self.bQuit = wx.Button(p, -1, MsgQuit)
 		self.Bind(wx.EVT_BUTTON, self.OnQuit, self.bQuit)
+
 		sizer = wx.BoxSizer(wx.VERTICAL)
-		box = wx.BoxSizer(wx.HORIZONTAL)
-		box.Add(label, 0, (wx.ALIGN_CENTRE | wx.ALL), 5)
-		box.Add(self.fileName, 1, ((wx.EXPAND | wx.ALIGN_CENTRE) | wx.ALL), 5)
-		box.Add(self.browse, 0, (wx.ALIGN_CENTRE | wx.ALL), 5)
-		sizer.Add(box, 0, ((wx.GROW | wx.ALIGN_CENTER_VERTICAL) | wx.ALL), 5)
+
+		gbSizer1 = wx.GridBagSizer( 0,0 )
+
+		gbSizer1.Add( label, wx.GBPosition( 0, 0 ), wx.GBSpan( 1, 1 ), wx.ALL|wx.ALIGN_CENTER_VERTICAL, 2 )
+		gbSizer1.Add( self.fileName, wx.GBPosition( 0, 1 ), wx.GBSpan( 1, 1 ), wx.ALL|wx.EXPAND, 2 )
+		gbSizer1.Add( self.browse, wx.GBPosition( 0, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 2 )
+		gbSizer1.Add( label2, wx.GBPosition( 1, 0 ), wx.GBSpan( 1, 1 ), wx.ALL|wx.ALIGN_CENTER_VERTICAL, 2 )
+		gbSizer1.Add( self.txtMaxis, wx.GBPosition( 1, 1 ), wx.GBSpan( 1, 2 ), wx.ALL|wx.EXPAND, 2 )
+		gbSizer1.Add( label3, wx.GBPosition( 2, 0 ), wx.GBSpan( 1, 1 ), wx.ALL|wx.ALIGN_CENTER_VERTICAL, 2 )
+		gbSizer1.Add( self.txtPlugins, wx.GBPosition( 2, 1 ), wx.GBSpan( 1, 2 ), wx.ALL|wx.EXPAND, 5 )
+		gbSizer1.AddGrowableCol( 1 )
+		sizer.Add(gbSizer1, 0, wx.EXPAND, 2)
+
 		box = wx.BoxSizer(wx.HORIZONTAL)
 		self.text = wx.TextCtrl(p, -1, '', style=((((wx.HSCROLL | wx.TE_MULTILINE) | wx.TE_READONLY) | wx.TE_RICH2) | wx.TE_AUTO_URL), size=(600, 300))
 		box.Add(self.text, 1, ((wx.EXPAND | wx.ALIGN_CENTRE) | wx.ALL), 5)
